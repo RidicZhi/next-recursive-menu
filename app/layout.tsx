@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import '@/styles/globals.css'
+import HeaderNavbar from '@/components/HeaderNavbar'
 
 export const metadata: Metadata = {
   title: 'Dynamic Menu',
@@ -14,6 +15,7 @@ export default function RootLayout({
     <html lang='en'>
       <body>
         <div className='app'>
+          <HeaderNavbar />
           {children}
         </div>
       </body>

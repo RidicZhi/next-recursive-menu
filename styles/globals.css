@@ -4,19 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* Common */
 .app {
   @apply w-screen h-screen flex items-center flex-col mx-auto sm:px-16 px-10;
-}
-
-.head-text {
-  @apply my-6 text-4xl font-extrabold text-center text-black sm:text-5xl;
 }
 
 .page-section {
   @apply w-full mt-8 flex-center flex-col;
 }
-
 
 .flex-center {
   @apply flex justify-center items-center;
@@ -32,4 +27,42 @@
 
 .flex-between {
   @apply flex justify-between items-center;
+}
+
+/* Text */
+.head-text {
+  @apply my-6 text-4xl font-extrabold text-center text-black sm:text-5xl;
+}
+
+/* Menu */
+.header-bar {
+  @apply w-full flex flex-col;
+}
+
+.header-container {
+  @apply py-8 flex items-center md:justify-center;
+}
+.parent-nav-ul {
+  @apply flex flex-wrap text-gray-900 md:gap-x-7;
+}
+
+.menu-item {
+  @apply hover:bg-gray-100 p-2 rounded block text-lg;
+}
+
+.dropdown {
+  @apply absolute border border-gray-300 rounded-md min-w-[180px] mt-2 ml-2 p-5 bg-white;
+} 
+.dropdown .dropdown{
+  @apply ml-[90px] ;
+} 
+
+.nav-container .hide {
+  display: none;
+}
+
+@media (max-width: 640px) { 
+  .mobile-hide{
+    display: none;
+  }
 }
