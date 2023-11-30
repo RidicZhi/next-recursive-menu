@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.app {
+  @apply w-screen h-screen flex items-center flex-col mx-auto sm:px-16 px-10;
+}
+
+.head-text {
+  @apply my-6 text-4xl font-extrabold text-center text-black sm:text-5xl;
+}
+
+.page-section {
+  @apply w-full mt-8 flex-center flex-col;
+}
+
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
