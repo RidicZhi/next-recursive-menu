@@ -1,16 +1,16 @@
 import Image from 'next/image'
 
-const HomePage: React.FC = () => (
+const AboutPage: React.FC = () => (
   <section className='page-section'>
     <Image
-      src='/hi.png'
-      alt='hi'
+      src='/about.png'
+      alt='about'
       width='0'
       height='0'
       sizes='100vw'
-      className='w-[600px] h-auto'
+      className='w-[400px] h-auto'
     />
   </section>
 )
 
-export default HomePage
+export default AboutPage
