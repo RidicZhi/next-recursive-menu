@@ -2,52 +2,19 @@ import Image from 'next/image'
 import Link from 'next/link'
 import HeaderNavItem from './HeaderNavItem'
 
-const MOCK_MENU = [
-    { id: '1', title: 'Home', url: '/', submenu: [] },
-    { id: '2', title: 'Login', url: '/login', submenu: [] },
-    {
-      id: '3',
-      title: 'Service',
-      url: '/service',
-      submenu: [
-        {
-          id: '3.1',
-          title: 'Technology',
-          url: '/service/tech',
-          submenu: [
-            {
-              id: '3.1.1',
-              title: 'Web App',
-              url: '/service/tech/web',
-              submenu: []
-            },
-            {
-              id: '3.1.2',
-              title: 'Mobile App',
-              url: '/service/tech/mobile',
-              submenu: []
-            }
-          ]
-        },
-        {
-          id: '3.2',
-          title: 'Food Delivery',
-          url: '/service/food_delivery',
-          submenu: []
-        },
-        {
-          id: '3.3',
-          title: 'House Cleaning',
-          url: '/service/house_cleaning',
-          submenu: []
-        }
-      ]
-    },
-    { id: '4', title: 'About', url: '/about', submenu: [] }
-  ]
+//Server Side Fetching with Time-based Revalidation
+const getMenuJSON = async (): Promise<MenuArray[]> => {
+  const res = await fetch('http://localhost:3000/api/menu', {
+    next: { revalidate: 3600 }
+  })
+  const menuData = await res.json()
+  return menuData
+}
 
-const HeaderNavbar = () => {
-  
+//Server Component
+const HeaderNavbar: React.FC = async () => {
+  const menuData = await getMenuJSON()
+  // console.log('Fetched Menu:', menuData)
   return (
     <header className='header-bar'>
       <div className='header-container'>
@@ -62,7 +29,7 @@ const HeaderNavbar = () => {
         </Link>
         <nav className='nav-container ml-8'>
           <ul className='parent-nav-ul' aria-label='menu-ul'>
-            {MOCK_MENU.map((item: MenuItem) => (
+            {menuData.map((item: MenuItem) => (
               <HeaderNavItem item={item} key={item.id} />
             ))}
           </ul>
