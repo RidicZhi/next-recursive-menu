@@ -2,9 +2,9 @@ import { render, screen } from '@testing-library/react'
 import Home from '@/app/page'
 
 describe('Home Page', () => {
-  render(<Home />)
-  it('should have text', () => {
-    const myElem = screen.getByText('hello')
-    expect(myElem).toBeInTheDocument()
+  it('Home Page should render welcome image', () => {
+    render(<Home />)
+    const image = screen.getByAltText('hi')
+    expect(image).toBeInTheDocument()
   })
 })

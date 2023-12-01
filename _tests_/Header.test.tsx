@@ -2,10 +2,6 @@ import { render, fireEvent, screen } from '@testing-library/react'
 import HeaderNavItem from '@/components/HeaderNavItem'
 import Dropdown from '@/components/Dropdown'
 
-jest.mock('next/router', () => ({
-  useRouter: jest.fn()
-}))
-
 const mockMenu = [{ id: '1', title: 'Home', url: '/', submenu: [] }]
 
 const mockItem1 = {
