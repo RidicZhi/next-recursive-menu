@@ -3,7 +3,7 @@ import Link from 'next/link'
 import HeaderNavItem from './HeaderNavItem'
 
 //Server Side Fetching with Time-based Revalidation
-const getMenuJSON = async (): Promise<MenuArray[]> => {
+const getMenuJSON = async (): Promise<MenuArray> => {
   const res = await fetch('http://localhost:3000/api/menu', {
     next: { revalidate: 3600 }
   })

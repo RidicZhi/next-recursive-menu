@@ -1,6 +1,8 @@
+import { NextRequest } from 'next/server'
+
 const ERROR_MESSAGE = 'Wrong user name or password'
 
-export const POST = async (req: { json: () => any }) => {
+export const POST = async (req: NextRequest) => {
   try {
     const body = await req.json()
     // console.log('body:',body)
