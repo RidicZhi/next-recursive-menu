@@ -34,6 +34,10 @@
   @apply my-6 text-4xl font-extrabold font-inter text-center text-black sm:text-5xl;
 }
 
+.error-text{
+  @apply my-3 text-center text-red-500;
+}
+
 /* Menu */
 .header-bar {
   @apply w-full flex flex-col;

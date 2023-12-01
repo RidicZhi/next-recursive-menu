@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -11,6 +12,9 @@ const schema = yup.object().shape({
 })
 
 const LoginForm: React.FC = () => {
+  const [error, setError] = useState('')
+  const [submitting, setIsSubmitting] = useState(false)
+  const router = useRouter()
 
   const {
     register,
@@ -21,17 +25,38 @@ const LoginForm: React.FC = () => {
     resolver: yupResolver(schema)
   })
 
+  const handleInputChange = () => setError('')
 
-  const onSubmit = (data: LoginPostData) => {
-    reset()
+  //Request Login
+  const onSubmit = async (data: LoginPostData) => {
+    setIsSubmitting(true)
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        body: JSON.stringify(data)
+      })
+      if (response.ok) {
+        //TO-DO: Login action
+        return
+      }
+      const result = await response.json()
+      setError(result.message || 'Unknown error occurred')
+    } catch (error) {
+      setError('Request Error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
-  const router = useRouter()
   const onCancel = () => {
-    router.back()
+    const confirmCancel = window.confirm('Cancel and go back?')
+    if (confirmCancel) {
+      router.back()
+    }
   }
 
   return (
+    <>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className='form_container glassmorphism'
@@ -42,6 +67,7 @@ const LoginForm: React.FC = () => {
             {...register('userName')}
             required
             className='form_input focus:outline-none focus:shadow-outline'
+            onChange={handleInputChange}
           />
           <p>{errors.userName?.message}</p>
         </label>
@@ -53,26 +79,22 @@ const LoginForm: React.FC = () => {
             type='password'
             required
             className='form_input focus:outline-none focus:shadow-outline'
+            onChange={handleInputChange}
           />
           <p>{errors.password?.message}</p>
         </label>
 
         <div className='flex-center'>
-          <button
-            type='submit'
-            className='black_btn'
-          >
+          <button type='submit' disabled={submitting} className='black_btn'>
             Submit
           </button>
-          <button
-            type='button'
-            onClick={onCancel}
-            className='outline_btn'
-          >
+          <button type='button' onClick={onCancel} className='outline_btn'>
             Cancel
           </button>
         </div>
       </form>
+      <p className='error-text'>{error}</p>
+    </>
   )
 }
 
