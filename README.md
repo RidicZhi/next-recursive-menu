@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 💃 Introduction
+* Welcome to the NextJS Recursive Menu App! 🚀
 
-## Getting Started
+* This application is crafted using NextJS with TypeScript and seamlessly integrated with Jest for efficient testing.
 
-First, run the development server:
+### Key Features:
+
+- **BFF Pattern with Server-Side Render:** Employing a server-side fetch, this app efficiently renders a server component by fetching and processing menu JSON.
+
+- **Dynamic and Recursive Menu Rendering:** Enjoy a multi-layered menu that dynamically and recursively renders based on the fetched JSON data.
+
+- **Secure Login Form:** The login form is powered by React Hook Form with a Yup resolver, ensuring robust validation. The validated form data is posted to the API route.
+
+- **Testing with Jest:** Ensure the reliability of your codebase through unit tests using Jest.
+
+## 📱 Screenshots
+### Nested Menu
+<img src="./screenshots/menu.png" alt="menu" width="800"/>
+
+
+### Login Form
+<img src="./screenshots/login.png" alt="login" width="800"/>
+
+## 🚀 How To Use
+
+From your command line:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone this repository
+$ git clone https://github.com/ridiczhi/next-recursive-menu
+
+# Go into the repository
+$ cd next-recursive-menu
+
+# Install dependencies
+$ npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Scripts related to the Next.js app:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Start the app in development mode with hot-code reloading
+$ npm run dev
+# Now you can run the app in dev mode via http://localhost:3000/
 
-## Learn More
+# To create an optimized production build, you need run dev firstly, because my api endpoints are in 'http://localhost:3000/api'
+$ npm run dev
+$ npm run build
 
-To learn more about Next.js, take a look at the following resources:
+# After building the app start it in production mode
+$ npm start
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Run Unit Test via Jest
+$ npm test
+```
+## 📗 Solutions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* [NextJs 14 - App Router](https://nextjs.org/docs)
+* [React(Typescript)](https://react.dev/)
+* [React Hook Form / Yup](https://react-hook-form.com/docs)
+* [Tailwind](https://tailwindcss.com/)
+* [Jest](https://github.com/testing-library/jest-dom)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📰 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
