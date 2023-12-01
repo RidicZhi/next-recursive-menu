@@ -25,6 +25,7 @@ const HeaderNavbar: React.FC = async () => {
             src='/logo.png'
             className='mobile-hide'
             alt='logo'
+            priority={true}
           />
         </Link>
         <nav className='nav-container ml-8'>

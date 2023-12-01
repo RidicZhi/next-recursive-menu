@@ -9,6 +9,7 @@ const AboutPage: React.FC = () => (
       height='0'
       sizes='100vw'
       className='w-[400px] h-auto'
+      priority={true}
     />
   </section>
 )
