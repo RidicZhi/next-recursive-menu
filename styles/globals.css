@@ -31,7 +31,7 @@
 
 /* Text */
 .head-text {
-  @apply my-6 text-4xl font-extrabold text-center text-black sm:text-5xl;
+  @apply my-6 text-4xl font-extrabold font-inter text-center text-black sm:text-5xl;
 }
 
 /* Menu */
@@ -65,4 +65,28 @@
   .mobile-hide{
     display: none;
   }
+}
+
+/* Form */
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+}
+.form_container{
+  @apply mt-6 max-w-lg flex flex-col gap-3
+}
+
+.form_label{
+  @apply block text-gray-700 font-bold mb-2
+}
+
+.form_input {
+  @apply shadow appearance-none border rounded w-full mt-3 py-2 px-3 text-gray-700 leading-tight;
+}
+
+.black_btn {
+  @apply rounded border border-black bg-black py-2 px-5 mx-4 text-white transition-all hover:bg-white hover:text-black text-center text-sm;
+}
+
+.outline_btn {
+  @apply rounded border border-black bg-transparent py-2 px-5 mx-4 text-black transition-all hover:bg-black hover:text-white text-center text-sm;
 }
