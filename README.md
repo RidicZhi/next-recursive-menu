@@ -44,7 +44,8 @@ Scripts related to the Next.js app:
 $ npm run dev
 # Now you can run the app in dev mode via http://localhost:3000/
 
-# To create an optimized production build, you need run dev firstly, because my api endpoints are in 'http://localhost:3000/api'
+# To create an optimized production build, you need run dev firstly,
+# because current api endpoints are in 'http://localhost:3000/api' 👻
 $ npm run dev
 $ npm run build
 
